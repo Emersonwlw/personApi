@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -45,6 +46,14 @@ public class PersonController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletedById(@PathVariable long id ) throws PersonNotFoundException {
         personService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
+
+        return personService.updateById(id, personDTO);
+
+
     }
 
 
