@@ -1,4 +1,4 @@
-package dio.personapi.dto;
+package dio.personapi.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
